@@ -42,8 +42,20 @@ public class Fine {
 
     @Override
     public String toString() {
-        return "Traffic fine for car "+this.plateNumber+
-                "Total amount:"+this.totalAmount+
-                "Violations:"+this.violations;
+        StringBuilder result = new StringBuilder();
+
+        result.append("Traffic for car ").append(plateNumber)
+                .append("\n");
+
+        result.append("Total amount: ").append(totalAmount)
+                .append(" EGP\n");
+
+        result.append("Violations:\n");
+
+        for (Violation violation : violations) {
+            result.append(violation).append("\n");
+        }
+
+        return result.toString().stripTrailing();
     }
 }

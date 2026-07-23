@@ -41,6 +41,6 @@ public class Violation {
 
     @Override
     public String toString() {
-        return "- "+this.description+" : "+ this.fee+" EFP";
+        return "- "+this.description+" : "+ this.fee+" EGP";
     }
 }
