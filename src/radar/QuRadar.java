@@ -3,6 +3,7 @@ package radar;
 import radar.model.Fine;
 import radar.model.Observation;
 import radar.model.Violation;
+import radar.model.enums.ViolationType;
 import radar.rule.TrafficRule;
 
 import java.util.*;
@@ -44,6 +45,20 @@ public class QuRadar {
         Map<String,Double> map = new HashMap<>();
         for(Fine fine : fines) {
             map.put(fine.getPlateNumber(),fine.getTotalAmount());
+        }
+        return map;
+    }
+
+    public Map<ViolationType,Integer> getAllViolations(){
+        Map<ViolationType,Integer> map = new HashMap<>();
+        for(Fine fine : fines) {
+            for(Violation violation : fine.getViolations()) {
+                if(map.containsKey(violation.getViolationType())) {
+                    map.put(violation.getViolationType(), map.get(violation.getViolationType())+1);
+                }else {
+                    map.put(violation.getViolationType(), 1);
+                }
+            }
         }
         return map;
     }
