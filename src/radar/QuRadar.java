@@ -5,9 +5,7 @@ import radar.model.Observation;
 import radar.model.Violation;
 import radar.rule.TrafficRule;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class QuRadar {
 
@@ -42,7 +40,11 @@ public class QuRadar {
         return Optional.empty();
     }
 
-    public List<Fine> getAllPossibleFines() {
-        return List.copyOf(fines);
+    public Map<String,Double> getAllPossibleFines() {
+        Map<String,Double> map = new HashMap<>();
+        for(Fine fine : fines) {
+            map.put(fine.getPlateNumber(),fine.getTotalAmount());
+        }
+        return map;
     }
 }

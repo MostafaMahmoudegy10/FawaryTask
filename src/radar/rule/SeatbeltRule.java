@@ -14,7 +14,7 @@ public class SeatbeltRule  implements TrafficRule{
         if(observation.getSeatbeltFastened()== SeatbeltStatus.NOT_FASTENED){
           return Optional.of(
                     new Violation(
-                        " seat belt should be fastened",
+                        " Seatbelt not fastned",
                             ViolationType.SEATBELT,
                             100
                     )

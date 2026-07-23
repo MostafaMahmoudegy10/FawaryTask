@@ -39,4 +39,11 @@ public class Fine {
     public void setViolations(List<Violation> violations) {
         this.violations = violations;
     }
+
+    @Override
+    public String toString() {
+        return "Traffic fine for car "+this.plateNumber+
+                "Total amount:"+this.totalAmount+
+                "Violations:"+this.violations;
+    }
 }

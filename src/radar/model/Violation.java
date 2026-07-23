@@ -7,9 +7,7 @@ public class Violation {
     private ViolationType violationType;
     private double fee;
 
-    public Violation() {
-
-    }
+    public Violation() {}
 
     public Violation(String description, ViolationType violationType, double fee) {
         this.description = description;
@@ -39,5 +37,10 @@ public class Violation {
 
     public void setFee(double fee) {
         this.fee = fee;
+    }
+
+    @Override
+    public String toString() {
+        return "- "+this.description+" : "+ this.fee+" EFP";
     }
 }
