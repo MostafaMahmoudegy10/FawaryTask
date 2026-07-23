@@ -12,11 +12,11 @@ public class SeatbeltRule  implements TrafficRule{
     @Override
     public Optional<Violation> validate(Observation observation) {
         if(observation.getSeatbeltFastened()== SeatbeltStatus.NOT_FASTENED){
-            Optional.of(
+          return Optional.of(
                     new Violation(
                         " seat belt should be fastened",
                             ViolationType.SEATBELT,
-                            observation.getSpeed()
+                            100
                     )
             );
         }

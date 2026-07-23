@@ -13,6 +13,8 @@ public class Violation {
 
     public Violation(String description, ViolationType violationType, double fee) {
         this.description = description;
+        this.violationType = violationType;
+        this.fee = fee;
     }
 
     public String getDescription() {

@@ -17,7 +17,7 @@ public class TruckSpeedRule implements  TrafficRule {
             Violation violation = new Violation(
               "Truck speed shouldn’t exceed " + TRUCK_SPEED,
                ViolationType.SPEED_LIMIT,
-               observation.getSpeed()
+               300
             );
             return Optional.of(violation);
         }
