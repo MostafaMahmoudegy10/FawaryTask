@@ -69,6 +69,7 @@ public class Main {
         System.out.println(radar.getAllPossibleFines());
 
         // get all violated rules with there count
+        System.out.println("\n"+"All possible violations:");
         System.out.println(radar.getAllViolations());
     }
 }
