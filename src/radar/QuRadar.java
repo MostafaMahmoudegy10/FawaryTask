@@ -23,8 +23,9 @@ public class QuRadar {
         List<Violation> violations = new ArrayList<>();
         double totalNumber=0;
         for (TrafficRule rule : rules) {
-            if(rule.validate(observation).isPresent()) {
-               Violation violation= rule.validate(observation).get();
+            Optional<Violation> violationOptional = rule.validate(observation);
+            if(violationOptional.isPresent()) {
+               Violation violation= violationOptional.get();
                totalNumber+=violation.getFee();
                violations.add(violation);
             }
@@ -35,6 +36,7 @@ public class QuRadar {
                     totalNumber,
                     violations
             );
+            fines.add(fine);
             return Optional.of(fine);
         }
         return Optional.empty();

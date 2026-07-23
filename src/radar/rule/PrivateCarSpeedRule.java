@@ -15,7 +15,7 @@ public class PrivateCarSpeedRule implements TrafficRule {
     public Optional<Violation> validate(Observation observation) {
         if(observation.getCarType() == CarType.PRIVATE_CAR && observation.getSpeed()>CAR_SPEED) {
            Violation violation = new Violation(
-                   "Private car speed shouldn’t exceed "+ CAR_SPEED,
+                   "speed of "+ observation.getSpeed() +" exceeded max allowed "+ CAR_SPEED,
                    ViolationType.SPEED_LIMIT,
                    300
            );
